@@ -5,108 +5,113 @@
  * @format
  * @flow strict-local
  */
-
+/* eslint-disable prettier/prettier */
+import {Image, View, Text, StyleSheet, Button, Alert, TouchableHighlight} from 'react-native';
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View style={styles.mainView}>
+      <Text style={styles.defaultText}>Hello Della</Text>
+      <Text style={styles.fontText}>Implement Custom Fonts and Icons</Text>
+      <View style={styles.card}>
+        <Image style={styles.myImage} source={require('./assets/images/people.png')}/>
+        <View style={styles.forDetail}>
+          <Text style={styles.titleText}>This text use NunitoSans-Bold font</Text>
+          <Text style={styles.detailText}>
+          And this text use NunitoSans-Italic font.
+          Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit.
+          </Text>
+          <TouchableHighlight style={styles.buttonPressMe}>
+            <Button
+              color="#FF7F2D"
+              // #FEDB92
+              onPress={() => Alert.alert('Tertekan')}
+              title="Press Me"
+            />
+          </TouchableHighlight>
+          <Icon.Button
+          name="facebook"
+          backgroundColor="#3b5998"
+          >
+            Login with Facebook
+          </Icon.Button>
+        </View>
+      </View>
+      <View style={styles.footer}>
+        <View style={styles.bottomBorder}></View>
+        <Text>Text Default</Text>
+      </View>
     </View>
   );
 };
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  mainView: {
+    backgroundColor: '#816CFF',
+    flex: 1,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  defaultText:{
+    margin: 20,
+    marginTop: 30,
+    fontSize: 15,
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  fontText: {
+    marginHorizontal: 20,
+    marginTop: 5,
+    fontFamily: 'NunitoSans-ExtraBold',
+    fontSize: 25,
   },
-  highlight: {
-    fontWeight: '700',
+  card:{
+    backgroundColor: '#FFFF',
+    borderRadius: 20,
+    height: 580,
+    marginHorizontal: 15,
+    marginVertical: 40,
   },
+  myImage:{
+    right: 15,
+    bottom: 80,
+    width: 400,
+    height: 400,
+  },
+  forDetail: {
+    bottom: 50,
+  },
+  titleText: {
+    fontFamily: 'NunitoSans-Bold',
+    fontSize: 20,
+    color: '#1E306E',
+    marginHorizontal: 20,
+    textAlign:'justify',
+  },
+  detailText: {
+    fontFamily: 'NunitoSans-Italic',
+    fontSize: 15,
+    color: '#1E306E',
+    marginHorizontal: 20,
+    marginTop: 10,
+    textAlign:'justify',
+  },
+  buttonPressMe:{
+    marginTop: 20,
+    alignItems: 'center',
+    borderRadius: 50,
+    width: 100,
+    marginHorizontal: 140,
+  },
+  footer:{
+    marginTop: 20,
+    marginHorizontal: 20,
+    marginVertical: 5,
+  },
+  bottomBorder: {
+    borderBottomColor:'white',
+    borderBottomWidth: 1,
+  }
 });
 
 export default App;
+
