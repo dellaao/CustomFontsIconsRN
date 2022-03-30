@@ -9,6 +9,7 @@
 import {Image, View, Text, StyleSheet, Button, Alert, TouchableHighlight} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+// MaterialIcons
 
 const App = () => {
   return (
@@ -24,19 +25,14 @@ const App = () => {
           Lorem ipsum dolor sit amet,
           consectetur adipiscing elit.
           </Text>
-          <TouchableHighlight style={styles.buttonPressMe}>
-            <Button
-              color="#FF7F2D"
-              // #FEDB92
-              onPress={() => Alert.alert('Tertekan')}
-              title="Press Me"
-            />
-          </TouchableHighlight>
+          <Text style={styles.iconText}> <Icon name="user" color={'white'} size={20}/> Profile Settings </Text>
+
           <Icon.Button
           name="facebook"
           backgroundColor="#3b5998"
+          style={{marginHorizontal:10, marginVertical: 10, borderRadius: 20, textAlign: 'center'}}
           >
-            Login with Facebook
+            Facebook
           </Icon.Button>
         </View>
       </View>
@@ -70,6 +66,7 @@ const styles = StyleSheet.create({
     height: 580,
     marginHorizontal: 15,
     marginVertical: 40,
+    bottom: 15,
   },
   myImage:{
     right: 15,
@@ -95,8 +92,21 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign:'justify',
   },
+  iconText:{
+    marginTop: 10,
+    marginBottom: 10,
+    marginHorizontal: 120,
+    fontSize: 15,
+    textAlign: 'center',
+    color: 'white',
+    backgroundColor: '#FF7F2D',
+    borderRadius: 10,
+    width: 150,
+    height: 30,
+  },
   buttonPressMe:{
     marginTop: 20,
+    marginBottom: 10,
     alignItems: 'center',
     borderRadius: 50,
     width: 100,
