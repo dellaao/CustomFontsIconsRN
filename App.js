@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     marginTop: 10,
     marginBottom: 10,
-    // marginHorizontal: 120,
     left: 20,
     fontSize: 15,
     textAlign: 'center',
@@ -137,7 +136,7 @@ const styles = StyleSheet.create({
   bottomBorder: {
     borderBottomColor:'white',
     borderBottomWidth: 1,
-  }
+  },
 });
 
 export default App;
