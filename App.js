@@ -25,15 +25,17 @@ const App = () => {
           Lorem ipsum dolor sit amet,
           consectetur adipiscing elit.
           </Text>
-          <Text style={styles.iconText}> <Icon name="user" color={'white'} size={20}/> Profile Settings </Text>
-
-          <Icon.Button
-          name="facebook"
-          backgroundColor="#3b5998"
-          style={{marginHorizontal:10, marginVertical: 10, borderRadius: 20, textAlign: 'center'}}
-          >
-            Facebook
-          </Icon.Button>
+          <Text style={styles.iconText}> <Icon name="instagram" color={'white'} size={20}/> Follow my Instagram </Text>
+          <View style={styles.iconView}>
+            <Icon.Button
+            onPress={() => Alert.alert('Tertekan')}
+            name="user"
+            backgroundColor="#FF7F2D"
+            style={styles.iconButton}
+            >
+              Settings
+            </Icon.Button>
+          </View>
         </View>
       </View>
       <View style={styles.footer}>
@@ -93,16 +95,31 @@ const styles = StyleSheet.create({
     textAlign:'justify',
   },
   iconText:{
+    paddingTop: 5,
+    paddingBottom: 8,
     marginTop: 10,
     marginBottom: 10,
-    marginHorizontal: 120,
+    // marginHorizontal: 120,
+    left: 20,
     fontSize: 15,
     textAlign: 'center',
     color: 'white',
-    backgroundColor: '#FF7F2D',
+    backgroundColor: '#d6249f',
     borderRadius: 10,
-    width: 150,
-    height: 30,
+    width: 200,
+    height: 35,
+  },
+  iconView:{
+    width: 120,
+    borderRadius: 20,
+    marginHorizontal: 130,
+    top: 5,
+  },
+  iconButton: {
+    backgroundColor: 'transparent',
+    marginHorizontal:10,
+    marginVertical: 10,
+    textAlign: 'center',
   },
   buttonPressMe:{
     marginTop: 20,
